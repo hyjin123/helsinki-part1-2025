@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./Components/Header";
 import Button from "./Components/Button";
+import Statistics from "./Components/Statistics";
 
 const App = () => {
   // save clicks of each button to its own state
@@ -23,15 +24,6 @@ const App = () => {
     setBad(bad + 1);
   };
 
-  //calculate the total votes
-  const total = good + neutral + bad;
-
-  //calculate the average score
-  const average = (good * 1 + neutral * 0 + bad * -1) / total;
-
-  //calculate the percentage of feedback
-  const percentage = good / total;
-
   return (
     <div>
       <Header />
@@ -39,13 +31,7 @@ const App = () => {
       <Button text="neutral" onClick={handleNeutralClick} />
       <Button text="bad" onClick={handleBadClick} />
 
-      <h1>statistics</h1>
-      <p>good: {good}</p>
-      <p>neutral: {neutral}</p>
-      <p>bad: {bad}</p>
-      <p>all: {total}</p>
-      <p>average: {average}</p>
-      <p>positive: {percentage * 100}%</p>
+      <Statistics good={good} neutral={neutral} bad={bad} />
     </div>
   );
 };

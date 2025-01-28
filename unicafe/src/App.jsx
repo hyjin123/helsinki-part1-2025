@@ -27,7 +27,7 @@ const App = () => {
   const total = good + neutral + bad;
 
   //calculate the average score
-  const average = (good * 1 + neutral * 0 + bad * -1) / 9;
+  const average = (good * 1 + neutral * 0 + bad * -1) / total;
 
   //calculate the percentage of feedback
   const percentage = good / total;
